@@ -1,0 +1,5 @@
+openai
+newsapi-python
+python-dotenv
+cartesia
+requests
