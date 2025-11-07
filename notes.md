@@ -1,0 +1,12 @@
+As this was the first python app I have ever made, some of my design choices were for experiment.
+For example, while the entire code could have been fit into one script (main.py), I put the code for fetching news into another script for the sake of testing modules and importing.
+The usage of the various APIs was done mainly through looking at the documentation and examples.
+I chose to create a temporary WAV file to store the audio bytes then appending it to the episode.mp3 because it was a reliable way to handle intermediate audio files. 
+This temporary file was also used to debug and issue with stitching the audio files together, as the final result.
+The main prompt strategy was to just assign the system the role of generating dialogue with specified parameters, while the user prompt contains details for the formatting and the stories.
+However, even when specified that the script should last for x amounts of minutes assuming a 150 WPM pace and with short and fast paced banter, the generated script kept on only have 12 lines of dialogue lasting for 3-4 minutes, no matter the parameters.
+To solve this, I adjusted the prompt to specify the range of words and number of dialogue to be around 130-150 words per minute and 4-5 lines of dialogue per minute. These values were fine tuned to achieve the approximate audio length and pace of the dialogue.
+However, a trade off to this method is that the podcast is too inflexible as the length of the dialogue is relatively hardcoded and longer lines of dialogue might be preferable for certain news stories.
+Some flaws to the current program is that there aren't any checks for whether the facts aren't actually hallucinated, so an improvement could be to just add some sort of fact checker.
+The program itself is also extremely slow, as it takes quite a while to stitch together the .wav files into episode.mp3, however I am unsure of more efficient and faster methods.
+Another thing I would do next is to add some sort of memory system that would remember previous episodes if the same host name was used. This would result in the host being able to reference previous episodes and would make the entire app feel more like a continuous show rather than a one off audio clip.
